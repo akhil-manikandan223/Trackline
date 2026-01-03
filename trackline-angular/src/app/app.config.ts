@@ -1,8 +1,12 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { icons } from './icons-provider';
+import { icons } from './shared/icons-provider';
 import { provideNzIcons } from 'ng-zorro-antd/icon';
 import { en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -16,6 +20,10 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes), provideNzIcons(icons), provideNzI18n(en_US), provideAnimationsAsync(), provideHttpClient()
-  ]
+    provideRouter(routes),
+    provideNzIcons(icons),
+    provideNzI18n(en_US),
+    provideAnimationsAsync(),
+    provideHttpClient(),
+  ],
 };

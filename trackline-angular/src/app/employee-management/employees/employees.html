@@ -1,0 +1,72 @@
+<div class="data-table-header">
+  <div class="data-table-header-title">
+    <h2>Employees</h2>
+  </div>
+  <div class="data-table-header-utility">
+    <button class="add-new-button" nz-button nzType="primary" nzDanger>
+      <nz-icon nzType="plus" nzTheme="outline" />Add
+    </button>
+    <nz-segmented [nzOptions]="options" [nzShape]="'round'" [(ngModel)]="selectedStatus">
+    </nz-segmented>
+
+    <input nz-input nzSize="small" type="text" placeholder="Search" />
+    <button nz-button style="padding: 6px">
+      <nz-icon nzType="menu"></nz-icon>
+    </button>
+  </div>
+</div>
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Status</th>
+      <th>Designation</th>
+      <th>Project Name</th>
+      <th>Experience (Years)</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (row of tableData; track row.email) {
+    <tr>
+      <td
+        nz-tooltip="{{ row.name }}"
+        [nzTooltipMouseEnterDelay]="tooltipMouseEnterDelay"
+        [nzTooltipPlacement]="toolTipPlacement"
+      >
+        {{ row.name }}
+      </td>
+      <td nz-tooltip="{{ row.email }}" [nzTooltipMouseEnterDelay]="tooltipMouseEnterDelay">
+        {{ row.email }}
+      </td>
+      <td nz-tooltip="{{ row.phone }}" [nzTooltipMouseEnterDelay]="tooltipMouseEnterDelay">
+        {{ row.phone }}
+      </td>
+      <td nz-tooltip="{{ row.address }}" [nzTooltipMouseEnterDelay]="tooltipMouseEnterDelay">
+        {{ row.address }}
+      </td>
+      <td nz-tooltip="{{ row.status }}" [nzTooltipMouseEnterDelay]="tooltipMouseEnterDelay">
+        {{ row.status }}
+      </td>
+      <td nz-tooltip="{{ row.designation }}" [nzTooltipMouseEnterDelay]="tooltipMouseEnterDelay">
+        {{ row.designation }}
+      </td>
+      <td nz-tooltip="{{ row.projectName }}" [nzTooltipMouseEnterDelay]="tooltipMouseEnterDelay">
+        {{ row.projectName }}
+      </td>
+      <td nz-tooltip="{{ row.experience }}" [nzTooltipMouseEnterDelay]="tooltipMouseEnterDelay">
+        {{ row.experience }}
+      </td>
+    </tr>
+    }
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>
+        <b>{{ tableData.length }} Records</b>
+      </td>
+    </tr>
+  </tfoot>
+</table>
